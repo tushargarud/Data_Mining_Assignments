@@ -1,0 +1,7 @@
+#install.packages("arules")
+setwd("C:/Academic/Data Mining/Assignments/Assignment_6/Dataset")
+txs <- read.table("Amazon0312.txt")
+#txs <- as(inputDataTable,"Amazon0312.txt")
+itemsets <- apriori(txs, parameter = list(support = 0.05, target="frequent itemsets"))
+rules <- ruleInduction(itemsets, confidence = 0.7)
+print(rules)
